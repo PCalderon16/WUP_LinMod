@@ -42,6 +42,11 @@ plot(SIMS~ARM,data=data)
 
 ### Numerical results
 
+```{r}
+cor(SIMS~ARM,data=data)
+```
+
+
 
 ### Inferential  (Build model.1)
 
