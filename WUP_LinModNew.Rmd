@@ -36,9 +36,14 @@ data <- read.csv(file="https://onlinestatbook.com/case_studies_rvls/physical_str
 ### scatterplot
 
 ```{r}
-plot(SIMS~ARM,data=data)
+basicNN <- ggplot(data,aes(y=SIMS,x=ARM))
 ```
 
+```{r}
+basicNN + geom_point()
+```
+
+The scatter plot above shows a positive linear relationship between SIMS and ARM. This means that the greater the arm strength of the worker, the better they perform on the simulations that were used to assess job performance.  
 
 ### Numerical results
 
@@ -46,7 +51,7 @@ plot(SIMS~ARM,data=data)
 cor(SIMS~ARM,data=data)
 ```
 
-
+The value above provides the specific correlation coefficient on the relationship between SIMS and ARM. The value 0.686 is quite decent in showing the positive linear relationship between SIMS and ARM. 
 
 ### Inferential  (Build model.1)
 
@@ -55,16 +60,37 @@ model.1 <- lm(SIMS~ARM,data=data)
 summary.lm(model.1)
 ```
 
+The model above shows the liinear model of the realtionship between SIMS and ARM. The most important information that can be taken from the model are the residual standard error and the adjusted R-squared value. A low residual standard error value of 1.226 means that the values do not deviate largely from the predicted value. Moreover, based on the value of the adjusted R-squared, we're reducing the error from the mean model by 46.6 %. 
 
 #### Predict at target point
 
+```{r}
+Targetpoint <- data.frame(ARM= 88, GRIP = 94)
+```
+
+
+```{r}
+predict(model.1 , Targetpoint, interval = "prediction")
+```
+
+This predicted the value we would get from model 1 if the target point for ARM is 88 and Grip is 94. But given that this model only makes use of ARM, it disregards the targetpoint value for GRIP. 
 
 #### scatterplot with model fit
-  
+
+```{r}
+basicNN + geom_point() + geom_lm()
+```
+
+The scatter plot above now includes the prediction line that was determined previously. It further establishes that the relationship creates a normal distribution wherein the 95% of all the point is within two residual values from the line of best fit.      
+
+
 
 ## Model 2 SIM~GRIP
 
 ### Now add in scatterplot
+
+
+
 
 
 ### Numerical results 
