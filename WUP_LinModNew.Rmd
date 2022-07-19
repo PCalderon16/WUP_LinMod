@@ -101,7 +101,10 @@ Similar to the first model, there seem to be a positive linear between SIMS and 
 
 ### Numerical results 
 
-
+```{r}
+cor(SIMS~GRIP,data=data)
+```
+The value above provides the specific correlation coefficient on the relationship between SIMS and GRIP. Although a value of 0.640 is quite decent in showing the positive linear relationship between SIMS and GRIP, it is lower than that of the first model. Therefore, it points toward the idea that arm strength is a better variable in predicting a worker's performance in the simulations. 
 
 ### Inferential  (Build model.2)
 
