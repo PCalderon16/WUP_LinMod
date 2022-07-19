@@ -102,8 +102,15 @@ Similar to the first model, there seem to be a positive linear between SIMS and 
 ### Numerical results 
 
 
+
 ### Inferential  (Build model.2)
-  
+
+```{r}
+model.2 <- lm(SIMS~GRIP,data=data)
+summary.lm(model.2)
+```
+
+Above is the linear model of the relationship between SIMS and GRIP, and it also shows the standard residual error value and the adjusted R-squared. Comparing these two values from the those of the first model, we can expect that the standard deviation curve is wider on this model compared to the first one. Also, the adjusted R-squared value on this model means that we're able to reduce the error from the mean model by 40.53% which is lower than that of the first model. Lastly, more of the error is explained by the first model compared to the second model, based on the residual standard error value.  
 
 #### predict model.2 at target point
 
